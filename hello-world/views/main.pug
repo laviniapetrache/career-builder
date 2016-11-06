@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    title Career Builder - Log in or sign up!
+    style(type='text/css').
+      p {
+      padding-left: 20px;
+      font-weight: bold;
+      }
+      input[type=text] {
+      color: grey;
+      padding-left: 20px;
+      }
+      .submitbtn {
+      padding-left: 20px;
+      color: blue;
+      font-weight: bold;
+      }
+  body
+    h1 Career document reviewer
+    //verify path
+    img(src='./hello-world/views/slide1.jpg')
+    table
+      tr
+        td
+          img(src='./hello-world/views/slide2.jpg')
+        td
+          p
+          p Log in!
+          input(type='text', name='signinemail', value='Email Address')
+          br
+          input(type='text', name='signinpassword', value='Password')
+          br
+          input.submitbtn(type='submit', name='login', value='Log In!')
+          br
+          p Sign up!
+          input(type='text', name='signupemail', value='Email Address')
+          br
+          input(type='text', name='signuppassword', value='Password')
+          br
+          input(type='text', name='signupretypepassword', value='Retype Password')
+          br
+          input(type='text', name='firstname', value='First Name')
+          br
+          input(type='text', name='lastname', value='Last Name')
+          br
+          input(type='text', name='program', value='Program/Year')
+          br
+          select
+            option(value='defaultindustry') Function interest
+            option(value='consulting') Consulting
+            option(value='externalconsulting') External Consulting
+            option(value='consultinginternal') Consulting: Internal Consulting/Strategy
+            option(value='finance') Finance/Accounting
+            option(value='marketing') Marketing/Sales
+            option(value='generalmanagement') General Management
+            option(value='operations') Operations/Logistics
+            option(value='realestate') Real Estate
+            option(value='energy') Energy
+            option(value='other') Other
+          br
+          select
+            option(value='defaultindustry') Industry interest
+            option(value='consulting') Consulting
+            option(value='financeib') Finance: Investment Banking
+            option(value='financeetc') Finance: Diversified Financial Services
+            option(value='financeim') Finance: Investment Management
+            option(value='financepe') Finance: Private Equity/Venture Capital
+            option(value='technology') Technology
+            option(value='retailecommerce') Retail: eCommerce
+            option(value='retailetc') Retail: other
+            option(value='healthcare') Healthcare/Pharmaceuticals
+            option(value='nonprofit') Nonprofit
+            option(value='manufacturing') Manufacturing
+            option(value='cpg') Consumer Packaged Goods
+            option(value='media') Media/Entertainment
+            option(value='energy') Energy
+            option(value='realestate') Real Estate
+            option(value='other') Other
+          br
+          br
+          input.submitbtn(type='submit', name='createaccount', value='Create Account!')
+          p

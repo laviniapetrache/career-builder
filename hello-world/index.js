@@ -1,12 +1,12 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+/*var bodyParser = require('body-parser');
 var multer = require('multer');
-var upload = multer(); 
+var upload = multer(); */
 var app = express();
 
 app.set('view engine', 'pug');
 app.set('views', './views');
-
+/*
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(upload.array()); // for parsing multipart/form-data
@@ -16,14 +16,14 @@ app.post('/', function(req, res){
     console.log(req.body);
     res.send("recieved your request!");
 });
+*/
 
-/*
 app.use(express.static('public'));
 
 app.get('/components', function(req, res){
-    res.render('content');
+    res.render('main');
 });
-*/
+
 
 /*var things = require('./things.js'); 
 //both index.js and things.js should be in same directory
