@@ -6,6 +6,56 @@ var app = express();
 
 app.set('view engine', 'pug');
 app.set('views', './views');
+
+app.use(express.static('public'));
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/my_db');
+
+var personSchema = mongoose.Schema({
+    name: String,
+    age: Number,
+    nationality: String
+});
+
+var Person = mongoose.model("Person", personSchema);
+//defines schema for a person and defines mongoos model Person
+
+
+/*
+app.get('/person', function(req, res){
+    res.render('person');
+});
+*/
+
+app.get('/person', function(req, res){
+    res.render('person');
+});
+
+app.post('/person', function(req, res){
+    var personInfo = req.body; //Get the parsed information
+    if(!personInfo.name || !personInfo.age || !personInfo.nationality){
+        res.render('show_message', {message: "Sorry, you provided worng info", type: "error"});
+    }
+    else{
+        var newPerson = new Person({
+            name: personInfo.name,
+            age: personInfo.age,
+            nationality: personInfo.nationality
+        });
+        newPerson.save(function(err, res){
+            if(err)
+                res.render('show_message', {message: "Database error", type: "error"});
+            else
+                res.render('show_message', {message: "New person added", type: "success", person: personInfo});
+        });
+    }
+});
+
+app.get('/components', function(req, res){
+    res.render('main');
+});
+
 /*
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -17,13 +67,6 @@ app.post('/', function(req, res){
     res.send("recieved your request!");
 });
 */
-
-app.use(express.static('public'));
-
-app.get('/components', function(req, res){
-    res.render('main');
-});
-
 
 /*var things = require('./things.js'); 
 //both index.js and things.js should be in same directory
