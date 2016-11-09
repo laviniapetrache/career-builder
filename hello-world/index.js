@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var Promise = require('bluebird');
 var multer = require('multer');
 var upload = multer(); 
 var app = express();
@@ -15,6 +16,7 @@ app.set('views', './views');
 app.use(express.static('public'));
 
 var mongoose = require('mongoose');
+mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/my_db');
 
 var personSchema = mongoose.Schema({
@@ -37,7 +39,8 @@ app.get('/person', function(req, res){
     res.render('person');
 });
 
-app.post('/person',bodyParser, function(req, res){
+app.post('/person',bodyParser.urlencoded(), function(req, res){
+    console.log('person');
     var personInfo = req.body; //Get the parsed information
     if(!personInfo.name || !personInfo.age || !personInfo.nationality){
         res.render('show_message', {message: "Sorry, you provided worng info", type: "error"});
@@ -48,7 +51,9 @@ app.post('/person',bodyParser, function(req, res){
             age: personInfo.age,
             nationality: personInfo.nationality
         });
-        newPerson.save(function(err, res){
+        console.log('saving');
+        newPerson.save(function(err, result){
+            console.log('saved');
             if(err)
                 res.render('show_message', {message: "Database error", type: "error"});
             else
