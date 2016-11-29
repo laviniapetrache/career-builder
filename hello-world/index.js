@@ -110,6 +110,9 @@ app.get('/components', function(req, res){
     res.render('main');
 });
 
+app.get('/dashboard', function(req, res){
+    res.render('dashboard');
+});
 
 /*
 app.post('/', function(req, res){
