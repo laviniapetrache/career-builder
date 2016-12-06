@@ -103,7 +103,21 @@ app.post('/person',bodyParser.urlencoded(), function(req, res){
             else
                 res.render('show_message', {message: "New person added", type: "success", person: personInfo});
         });
+        Person.find(function(err, response){
+        console.log(response);
+        if(err)
+                res.render('show_message', {message: "Database error", type: "error"});
+            else
+                res.render('show_message', {message: "Information retrieved from database", type: "success", person: personInfo});    
+    
+        });
     }
+});
+
+app.get('/viewpeople', function(req, res){
+    Person.find(function(err, response){
+        res.json(response);
+    });
 });
 
 app.get('/components', function(req, res){
