@@ -11,7 +11,7 @@ app.use(upload.array()); // for parsing multipart/form-data
 app.use(express.static('public'));
 
 app.set('view engine', 'pug');
-app.set('views', './views');
+app.set('views', 'views');
 
 app.use(express.static('public'));
 
