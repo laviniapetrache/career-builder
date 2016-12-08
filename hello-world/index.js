@@ -17,7 +17,8 @@ app.use(express.static('public'));
 
 var mongoose = require('mongoose');
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/my_db');
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/my_db');
 
 var personSchema = mongoose.Schema({
     name: String,
