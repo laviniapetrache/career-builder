@@ -37,10 +37,19 @@ var taskSchema = mongoose.Schema({
     taskURL: String,
     reviewerEmail: String,
     taskType: String
-})
+});
 
 var Task = mongoose.model("Task", taskSchema);
 
+// /task/david@yale.edu
+/*code to find all tasks from the Task schema that have clientEmail=:clientEmail; 
+to get all Tasks as such just leave get request url as '/task'*/
+/*app.get('/task/:clientEmail', function (req, res) {
+    Task.find({clientEmail: req.params.clientEmail}, function (err tasks) {
+        res.render('task', {email: tasks[0].reviewerEmail})
+    });
+});
+*/
 /*
 app.get('/person', function(req, res){
     res.render('person');
@@ -127,6 +136,9 @@ app.get('/components', function(req, res){
 });
 
 app.get('/dashboard', function(req, res){
+    if (req.query.status) {
+    
+    }
     res.render('dashboard');
 });
 
