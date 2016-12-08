@@ -130,8 +130,8 @@ app.get('/viewpeople', function(req, res){
         res.json(response);
     });
 });
-
-app.get('/components', function(req, res){
+//home page login
+app.get('/', function(req, res){
     res.render('main');
 });
 
