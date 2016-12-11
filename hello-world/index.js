@@ -125,6 +125,22 @@ app.post('/person',bodyParser.urlencoded(), function(req, res){
     }
 });
 
+/*app.get('/dashboard', function (req, res) {
+   Task.find({clientEmail: req.params.clientEmail}, function (err, tasks) {
+       console.log(tasks);
+       //res.render('', {email: tasks[0].reviewerEmail})
+   });
+});
+*/
+
+app.get('/dashboard', function (req, res) {
+   Task.find(function (err, tasks) {
+       console.log(tasks);
+       res.json(tasks);
+       //res.render('', {email: tasks[0].reviewerEmail})
+   });
+});
+
 app.get('/viewpeople', function(req, res){
     Person.find(function(err, response){
         res.json(response);
@@ -134,14 +150,14 @@ app.get('/viewpeople', function(req, res){
 app.get('/', function(req, res){
     res.render('main');
 });
-
+/*
 app.get('/dashboard', function(req, res){
     if (req.query.status) {
     
     }
     res.render('dashboard');
 });
-
+*/
 /*
 app.post('/', function(req, res){
     console.log(req.body);
