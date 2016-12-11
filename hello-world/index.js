@@ -67,7 +67,7 @@ app.post('/task', bodyParser.urlencoded(), function(req, res) {
             if (err) {
                 res.render('show_message', {message: "Database error", type: "error"});    
             } else {
-                res.render('show_message', {message: "New person added", type: "success", task: taskInfo});
+                res.render('dashboard');
             }
         });
     }
@@ -108,8 +108,8 @@ app.post('/person',bodyParser.urlencoded(), function(req, res){
         if(err)
                 res.render('show_message', {message: "Database error", type: "error"});
             else
-                res.render('show_message', {message: "Information retrieved from database", type: "success", person: personInfo});    
-    
+                //res.render('show_message', {message: "Information retrieved from database", type: "success", person: personInfo});    
+                res.render('dashboard');
         });
     }
 });
