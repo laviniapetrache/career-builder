@@ -45,7 +45,7 @@ var Task = mongoose.model("Task", taskSchema);
 /*code to find all tasks from the Task schema that have clientEmail=:clientEmail; 
 to get all Tasks as such just leave get request url as '/task'*/
 /*app.get('/task/:clientEmail', function (req, res) {
-    Task.find({clientEmail: req.params.clientEmail}, function (err tasks) {
+    Task.find({clientEmail: req.params.clientEmail}, function (err, tasks) {
         res.render('task', {email: tasks[0].reviewerEmail})
     });
 });
@@ -136,13 +136,20 @@ app.post('/person',bodyParser.urlencoded(), function(req, res){
 app.get('/dashboard', function (req, res) {
    Task.find(function (err, tasks) {
        console.log(tasks);
-       res.json(tasks);
+       if(err)
+                res.render('show_message', {message: "Database error", type: "error"});
+            else
+       //res.json(tasks);
        //res.render('', {email: tasks[0].reviewerEmail})
+       res.render('dashboard', {data:tasks});
    });
 });
 
 app.get('/viewpeople', function(req, res){
     Person.find(function(err, response){
+        if(err)
+                res.render('show_message', {message: "Database error", type: "error"});
+            else
         res.json(response);
     });
 });

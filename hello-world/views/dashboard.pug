@@ -39,39 +39,17 @@ html
         td
           div
             table
-              tr
-                div(label='task1')
-                  | Task:Resume
-                  br
-                  |                             Requester:Harry Potter
-                  br
-                  |                             Task Function:Finance
-                  br
-                  |                             Task Industry:Consumer Goods
-                  br
-                  br
-                  br
-              tr
-                div(label='task2')
-                  | Task:Resume
-                  br
-                  |                             Requester:Sherlock Holmes
-                  br
-                  |                             Task Function:Marketing
-                  br
-                  |                             Task Industry:Any
-                  br
-                  br
-                  br
-              tr
-                div(label='task3')
-                  | Task:Resume
-                  br
-                  |                             Requester:Ashok Poothiyot
-                  br
-                  |                             Task Function:PM
-                  br
-                  |                             Task Industry:Tech
-                  br
-                  br
-                  br
+              each item in data
+                tr
+                  div(label='task1')
+                    | Task: #{item.taskType}
+                    br
+                    |                             Requester: #{item.clientEmail}
+                    br
+                    |                             Task URL: #{item.taskURL}
+                    br
+                    |                             Task Type: #{item.taskType}
+                    br
+                    br
+                    br
+            
