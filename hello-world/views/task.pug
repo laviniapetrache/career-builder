@@ -1,0 +1,18 @@
+html
+    head
+        title Task
+    body
+        form(action="/task", method="POST")
+            div
+                label(for="clientEmail") Email: 
+                input(name="clientEmail")
+            br
+            div
+                label(for="taskURL") URL:
+                input(name="taskURL")
+            br
+            div
+                label(for="taskType") Type: 
+                input(name="taskType")
+            br
+            button(type="submit") Submit a new task
