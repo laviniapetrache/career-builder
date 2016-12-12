@@ -78,7 +78,13 @@ app.post('/task', bodyParser.urlencoded(), function(req, res) {
             if (err) {
                 res.render('show_message', {message: "Database error", type: "error"});    
             } else {
-                res.render('dashboard');
+                Task.find(function (err, tasks) {
+                    console.log(tasks);
+                   if(err)
+                        res.render('show_message', {message: "Database error", type: "error"});
+                    else
+                        res.render('dashboard', {data:tasks});
+                    });
             }
         });
     }
