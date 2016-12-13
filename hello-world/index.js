@@ -144,10 +144,10 @@ app.get('/dashboard', function (req, res) {
        console.log(tasks);
        if(err)
                 res.render('show_message', {message: "Database error", type: "error"});
-            else
+        else
        //res.json(tasks);
        //res.render('', {email: tasks[0].reviewerEmail})
-       res.render('dashboard', {data:tasks});
+            res.render('dashboard', {data:tasks});
    });
 });
 

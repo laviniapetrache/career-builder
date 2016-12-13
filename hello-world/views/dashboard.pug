@@ -34,6 +34,8 @@ html
 
             
             br
+            input.submitbtn(type='submit', name='allTasks', value='All Tasks')
+            br
             input.submitbtn(type='submit', name='availableTasks', value='Available Tasks')
             br
             input.submitbtn(type='submit', name='availableTasks', value='Submitted Tasks')
@@ -49,7 +51,7 @@ html
               each item in data
                 tr
                   div(label='task1')
-                    | Task Type: #{item.taskType}
+                    |                             Task Type: #{item.taskType}
                     br
                     |                             Requester: #{item.clientEmail}
                     br
