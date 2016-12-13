@@ -21,11 +21,19 @@ html
     img(src='./slide1.jpg')
     a(href="/")
             button(type="button") Log out
+    br
+    br
+    a(href="/task")
+            button(type="button") Create Task
+    br
+    
     table
       tr
         td
           div(style='color:#0000FF')
 
+            
+            br
             input.submitbtn(type='submit', name='availableTasks', value='Available Tasks')
             br
             input.submitbtn(type='submit', name='availableTasks', value='Submitted Tasks')
@@ -34,21 +42,18 @@ html
             br
             input.submitbtn(type='submit', name='availableTasks', value='Finished Tasks')
             br
-            a(href="/task")
-            button(type="button") Create Task
+            
         td
           div
             table
               each item in data
                 tr
                   div(label='task1')
-                    | Task: #{item.taskType}
+                    | Task Type: #{item.taskType}
                     br
                     |                             Requester: #{item.clientEmail}
                     br
                     |                             Task URL: #{item.taskURL}
-                    br
-                    |                             Task Type: #{item.taskType}
                     br
                     br
                     br
